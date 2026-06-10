@@ -2,8 +2,15 @@
 import "./globals.css";
 import Theme from "./utils/ThemeProvider";
 import { Toaster } from 'react-hot-toast';
+
+const BASE_URL = "https://mahadev-keychain.vercel.app";
+
 export const metadata = {
-  title: "Mahadev Keychain – Wholesale Keychain Supplier India",
+  metadataBase: new URL(BASE_URL),
+  title: {
+    default: "Mahadev Keychain – Wholesale Keychain Supplier India",
+    template: "%s | Mahadev Keychain",
+  },
   description:
     "Mahadev Keychain is a wholesale keychain supplier. Custom, promotional, corporate & personalized keychains at wholesale prices. Bulk orders, Pan India shipping.",
   keywords: [
@@ -19,15 +26,25 @@ export const metadata = {
     "Anime Keychains",
     "Mahadev Keychain",
   ],
+  authors: [{ name: "Mahadev Keychain" }],
+  creator: "Mahadev Keychain",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  alternates: {
+    canonical: BASE_URL,
+  },
   openGraph: {
     title: "Mahadev Keychain – Wholesale Keychain Supplier",
     description:
       "Factory direct wholesale keychains. Acrylic, metal, photo, name, anime, corporate, promotional & custom keychains. Bulk orders welcome.",
-    url: "https://www.mahadevkeychain.com",
+    url: BASE_URL,
     siteName: "Mahadev Keychain",
     images: [
       {
-        url: "https://www.mahadevkeychain.com/images/og-image.jpg",
+        url: "/assets/images/og-image.png",
         width: 1200,
         height: 630,
         alt: "Mahadev Keychain Wholesale",
@@ -36,49 +53,18 @@ export const metadata = {
     locale: "en_IN",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mahadev Keychain – Wholesale Keychain Supplier",
+    description:
+      "Factory direct wholesale keychains. Bulk orders welcome.",
+    images: ["/assets/images/og-image.png"],
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        {/* Primary SEO Meta Tags */}
-        <meta name="description" content={metadata.description} />
-        <meta name="keywords" content={metadata.keywords.join(", ")} />
-        <meta name="author" content="Mahadev Keychain" />
-
-        {/* Open Graph / Facebook */}
-        <meta property="og:title" content={metadata.openGraph.title} />
-        <meta
-          property="og:description"
-          content={metadata.openGraph.description}
-        />
-        <meta property="og:type" content={metadata.openGraph.type} />
-        <meta property="og:url" content={metadata.openGraph.url} />
-        <meta
-          property="og:image"
-          content={metadata.openGraph.images[0].url}
-        />
-        <meta property="og:site_name" content={metadata.openGraph.siteName} />
-
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content={metadata.openGraph.title}
-        />
-        <meta
-          name="twitter:description"
-          content={metadata.openGraph.description}
-        />
-        <meta
-          name="twitter:image"
-          content={metadata.openGraph.images[0].url}
-        />
-
-        {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" />
-      </head>
       <body>
         <Toaster />
         <Theme>{children}</Theme>

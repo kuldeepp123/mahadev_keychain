@@ -1,6 +1,26 @@
+'use client';
 import { Box, Fab } from '@mui/material';
 import React from 'react';
+import Script from 'next/script';
 import Header from './components/Header/Header';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Mahadev Keychain",
+  description: "Wholesale keychain supplier in India. Custom, promotional, corporate & personalized keychains at bulk prices.",
+  url: "https://mahadev-keychain.vercel.app",
+  telephone: "+919791109568",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "IN",
+  },
+  image: "https://mahadev-keychain.vercel.app/assets/images/og-image.png",
+  priceRange: "₹₹",
+  sameAs: [
+    "https://wa.me/919791109568",
+  ],
+};
 import BannerSection from './components/landing/BannerSection';
 import ProductCategories from './components/landing/ProductCategories';
 import BestSellers from './components/landing/BestSellers';
@@ -16,6 +36,11 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 const HomePage = () => {
   return (
     <Box sx={{ width: '100%' }}>
+      <Script
+        id="json-ld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Header />
 
       {/* 1. Hero */}

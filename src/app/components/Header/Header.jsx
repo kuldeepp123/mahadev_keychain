@@ -1,5 +1,6 @@
 "use client"
 import * as React from 'react';
+import Image from 'next/image';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -96,16 +97,8 @@ const Header = () => {
                     gap: { md: 2 }
                 }}>
                     {/* Logo */}
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                        <Box sx={{
-                            width: 40, height: 40, borderRadius: '50%',
-                            background: 'linear-gradient(to bottom right, #ff9800, #f44336)',
-                            display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            color: 'white', fontWeight: 'bold', fontSize: '1rem',
-                        }}>
-                            MK
-                        </Box>
-                        <GradientText>Mahadev Keychains</GradientText>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                        <Image src="/assets/images/brand-logo.png" alt="Mahadev Keychain Logo" width={120} height={60} style={{ objectFit: 'contain' }} />
                     </Box>
 
                     {/* Desktop Navigation */}

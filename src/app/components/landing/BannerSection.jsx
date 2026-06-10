@@ -1,9 +1,8 @@
 "use client"
-import { Box, Typography, Container, Button, Chip, useMediaQuery, useTheme, keyframes } from '@mui/material';
+import { Box, Typography, Container, Button, Chip, keyframes, IconButton } from '@mui/material';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { IconButton } from '@mui/material';
 
 const fadeUp = keyframes`
   from { opacity: 0; transform: translateY(30px); }
@@ -38,9 +37,6 @@ const slides = [
 
 const BannerSection = () => {
   const [current, setCurrent] = useState(0);
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-
   useEffect(() => {
     const t = setInterval(() => setCurrent(p => (p + 1) % slides.length), 5000);
     return () => clearInterval(t);
@@ -98,8 +94,8 @@ const BannerSection = () => {
             }}
           />
           <Typography
-            variant={isMobile ? 'h4' : 'h2'}
-            sx={{
+            variant="h2"
+            sx={{ fontSize: { xs: '1.75rem', md: '3.75rem' },
               fontWeight: 900,
               mb: 2,
               lineHeight: 1.2,
@@ -113,8 +109,8 @@ const BannerSection = () => {
             {slides[current].title}
           </Typography>
           <Typography
-            variant={isMobile ? 'body1' : 'h6'}
-            sx={{ color: 'rgba(255,255,255,0.82)', mb: 5, maxWidth: 680, mx: 'auto', lineHeight: 1.7 }}
+            variant="h6"
+            sx={{ fontSize: { xs: '1rem', md: '1.25rem' }, color: 'rgba(255,255,255,0.82)', mb: 5, maxWidth: 680, mx: 'auto', lineHeight: 1.7 }}
           >
             {slides[current].subtitle}
           </Typography>

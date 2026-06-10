@@ -1,5 +1,6 @@
 "use client"
 import React from 'react';
+import Image from 'next/image';
 import { Typography, Button, Box, Container, Stack, Divider } from '@mui/material';
 import { MapPin, Phone, Mail, Instagram } from 'lucide-react';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
@@ -39,14 +40,7 @@ const Footer = () => (
         {/* Brand */}
         <Box>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2 }}>
-            <Box sx={{
-              width: 42, height: 42, borderRadius: '50%',
-              background: 'linear-gradient(135deg, #ff9800, #f44336)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              color: 'white', fontWeight: 800, fontSize: '1rem', flexShrink: 0
-            }}>
-              MK
-            </Box>
+            <Image src="/assets/images/brand-logo.png" alt="Mahadev Keychain Logo" width={42} height={42} style={{ borderRadius: '50%', objectFit: 'cover', flexShrink: 0 }} />
             <GradientText sx={{ fontSize: '1.3rem' }}>Mahadev Keychain</GradientText>
           </Box>
           <Typography variant="body2" color="grey.400" sx={{ lineHeight: 1.7, mb: 2 }}>

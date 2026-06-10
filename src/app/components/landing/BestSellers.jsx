@@ -62,7 +62,7 @@ const BestSellers = () => (
             }
           }}>
             <Box sx={{ position: 'relative', width: '100%', height: 220, overflow: 'hidden' }}>
-              <Image src={product.image} alt={product.name} fill style={{ objectFit: 'cover', transition: 'transform 0.4s' }} />
+              <Image src={product.image} alt={product.name} fill sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, 25vw" style={{ objectFit: 'cover', transition: 'transform 0.4s' }} />
               <Box
                 className="product-overlay"
                 sx={{
